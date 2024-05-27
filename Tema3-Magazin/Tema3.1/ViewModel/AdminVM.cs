@@ -28,10 +28,7 @@ namespace Tema3._1.ViewModel
             string nr = obj as string;
             switch (nr)
             {
-                //case "1":
-                //    ChangeCredentialsView changeCredentialsView = new ChangeCredentialsView();
-                //    changeCredentialsView.ShowDialog();
-                //    break;
+             
                 case "2":
                     CategoriesView categoriesView = new CategoriesView();
                     categoriesView.ShowDialog();
@@ -64,10 +61,7 @@ namespace Tema3._1.ViewModel
                      SalesStats sales = new SalesStats();
                     sales.ShowDialog();
                     break;
-                //case "10":
-                //    SalesStatsView salesStatsView = new SalesStatsView();
-                //    salesStatsView.ShowDialog();
-                //    break;
+              
                 default:
                     break;
             }

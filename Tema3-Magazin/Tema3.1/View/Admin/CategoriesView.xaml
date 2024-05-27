@@ -16,7 +16,7 @@
         <converters:CategoryConvert x:Key="CategoryConvert"/>
     </Window.Resources>
     <Grid>
-        <DataGrid Name="categoriesGrid" Margin="0,15,0,172" AutoGenerateColumns="False" ScrollViewer.VerticalScrollBarVisibility="Visible" ItemsSource= "{Binding CategoriesList}" >
+        <DataGrid Name="categoriesGrid" Margin="0,15,507,172" AutoGenerateColumns="False" ScrollViewer.VerticalScrollBarVisibility="Visible" ItemsSource= "{Binding CategoriesList}" >
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID" Binding="{Binding CategoryID}" Width="30"/>
                 <DataGridTextColumn Header="Name" Binding="{Binding Name}" Width="100"/>

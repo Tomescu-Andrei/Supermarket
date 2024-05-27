@@ -20,7 +20,6 @@ namespace Tema3._1.ViewModel
         public ProducerVM()
         {
             producerBLL = new ProducerBLL();
-            //producerBLL.OperationCompleted += ProducerBLL_OperationCompleted;
             ProducersList = new ObservableCollection<Producer>(producerBLL.GetAllProducer().Where(producer => producer.IsActive == true));
         }
 

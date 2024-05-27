@@ -24,7 +24,6 @@ namespace Tema3._1.Converters
                 int quantity;
                 if (int.TryParse(values[1].ToString(), out quantity))
                 {
-                    // Conversia a reușit, poți utiliza valoarea id
                 }
                 double totalprice=0;
                 double? price=context.Stocks.Where(stock=>stock.ProductID==productid).Select(stock=>stock.SellPrice).FirstOrDefault();
@@ -33,7 +32,6 @@ namespace Tema3._1.Converters
                 return new Receipt_Product()
                 {
                     ProductID = productid,
-                    //ReceiptID = receiptId,
                     Quantity = quantity,
                     TotalPrice = totalprice
                 };

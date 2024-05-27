@@ -133,10 +133,8 @@
     <Compile Include="ViewModel\AdminVM.cs" />
     <Compile Include="ViewModel\CashierVM.cs" />
     <Compile Include="ViewModel\CategoryVM.cs" />
-    <Compile Include="ViewModel\ModifyUserVM.cs" />
     <Compile Include="ViewModel\ProducerVM.cs" />
     <Compile Include="ViewModel\ProductVM.cs" />
-    <Compile Include="ViewModel\ReceiptVM.cs" />
     <Compile Include="ViewModel\Receipt_ProductVM.cs" />
     <Compile Include="ViewModel\StockVM.cs" />
     <Compile Include="ViewModel\UserVM.cs" />

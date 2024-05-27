@@ -31,22 +31,11 @@ namespace Tema3._1.Helpers
 
         public bool CanExecute(object parameter)
         {
-            //return canExecuteTask != null && canExecuteTask(parameter);
             return true;
         }
 
         public event EventHandler CanExecuteChanged;
-        /*{
-            add
-            {
-                CommandManager.RequerySuggested += value;
-            }
-
-            remove
-            {
-                CommandManager.RequerySuggested -= value;
-            }
-        }*/
+       
 
         public void Execute(object parameter)
         {

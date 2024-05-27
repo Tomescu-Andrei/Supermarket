@@ -36,7 +36,7 @@
         <TextBox Name="producername"  HorizontalAlignment="Left" Margin="124,319,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <TextBox Name="categoryname" HorizontalAlignment="Left" Margin="392,284,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" />
         <Label  HorizontalAlignment="Left" Margin="299,280,0,0" VerticalAlignment="Top">Category name:</Label>
-        <Label  HorizontalAlignment="Left" Margin="317,320,0,0" VerticalAlignment="Top">BarCode:</Label>
+        <Label  HorizontalAlignment="Left" Margin="300,320,0,0" VerticalAlignment="Top">BarCode:</Label>
         <TextBox Name="barcode"  HorizontalAlignment="Left" Margin="392,324,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120"/>
 
         <Button Content="Add Product" HorizontalAlignment="Left" Margin="49,367,0,0" VerticalAlignment="Top" Command="{Binding AddCommand}">

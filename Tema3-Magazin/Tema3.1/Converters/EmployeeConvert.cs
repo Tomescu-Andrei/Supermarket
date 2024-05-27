@@ -11,29 +11,6 @@ namespace Tema3._1.Converters
 {
     public class EmployeeConvert : IMultiValueConverter
     {
-        //public object Convert(object[] values, Type targetType, object parameter, System.Globalization.CultureInfo culture)
-        //{
-
-        //    if (values[0] != null && values[1] != null && values[2]!=null && values[3]!=null)
-        //    {
-        //        string name = values[0].ToString();
-        //        string password = values[1].ToString();
-        //        string type = values[2].ToString();
-        //        bool isActive = values[3] is int && (int)values[3] != 0; // Conversie la bool
-
-        //        return new Employee()
-        //        {
-        //            Name = name,
-        //            Password = password,
-        //            Type = type,
-        //            IsActive = isActive
-        //        };
-        //    }
-        //    else
-        //    {
-        //        return null;
-        //    }
-        //}
 
         public object Convert(object[] values, Type targetType, object parameter, CultureInfo culture)
         {

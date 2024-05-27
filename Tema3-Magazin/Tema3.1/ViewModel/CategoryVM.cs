@@ -35,7 +35,6 @@ namespace Tema3._1.ViewModel
         public CategoryVM()
         {
             categoryBLL = new CategoryBLL();
-            //categoryBLL.OperationCompleted += CategoryBLL_OperationCompleted;
             CategoriesList = new ObservableCollection<Category>(categoryBLL.GetAllCategory().Where(category => category.IsActive == true));
         }
 

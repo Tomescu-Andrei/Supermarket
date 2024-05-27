@@ -16,7 +16,6 @@ namespace Tema3._1.Converters
             if (values[0] != null )
             {
                 string name = values[0].ToString();
-                //bool isActive = values[1] is int && (int)values[1] != 0; // Conversie la bool
 
                 return new Category()
                 {

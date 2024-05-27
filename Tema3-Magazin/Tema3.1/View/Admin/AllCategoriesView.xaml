@@ -7,24 +7,20 @@
         xmlns:viewModel="clr-namespace:Tema3._1.ViewModel"
         xmlns:converters="clr-namespace:Tema3._1.Converters"
         mc:Ignorable="d"
-        Title="AllCategoriesView" Height="450" Width="800">
+        Title="AllCategoriesView" Height="450" Width="400">
     <Window.DataContext>
         <viewModel:CategoryVM/>
     </Window.DataContext>
 
     <Window.Resources>
-        <converters:StockConvert x:Key="StockConvert"/>
-        <converters:CategoryConvert x:Key="CategoryConvert"/>
-        <converters:StockProductConvert x:Key="StockProductConvert"/>
-        <converters:ProductCategoryConvert x:Key="ProductCategoryConvert"/>
         <converters:SumPerCategoryConvert x:Key="SumPerCategoryConvert"/>
     </Window.Resources>
     <Grid>
         <DataGrid Name="producersGrid" AutoGenerateColumns="False" ScrollViewer.VerticalScrollBarVisibility="Visible"
-     ItemsSource="{Binding CategoriesList}" Margin="0,0,0,217">
+     ItemsSource="{Binding CategoriesList}" Margin="78,0,78,0">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Category Name" Binding="{Binding Name}" Width="80"/>
-                <DataGridTextColumn Header="Sum per category" Binding="{Binding CategoryID,Converter={StaticResource SumPerCategoryConvert}}" Width="100"/>
+                <DataGridTextColumn Header="Category Name" Binding="{Binding Name}" Width="100"/>
+                <DataGridTextColumn Header="Sum per category" Binding="{Binding CategoryID,Converter={StaticResource SumPerCategoryConvert}}" Width="120"/>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

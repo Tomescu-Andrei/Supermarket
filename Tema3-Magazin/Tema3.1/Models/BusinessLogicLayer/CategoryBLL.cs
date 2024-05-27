@@ -61,10 +61,10 @@ namespace Tema3._1.Models.BusinessLogicLayer
                 {
                     
                     context.RestoreCategory(category.CategoryID);
-                    existCategory.IsActive = true;  // Mark it as active in the list
-                    existCategory.Name = category.Name;  // Update the name in the list
+                    existCategory.IsActive = true;
+                    existCategory.Name = category.Name; 
                     context.ModifyCategory(category.CategoryID, category.Name);
-                    context.SaveChanges(); // Save changes to the database
+                    context.SaveChanges();
                     ErrorMessage = "";
                 }
                 else if (!exists)

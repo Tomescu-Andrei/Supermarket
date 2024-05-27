@@ -23,7 +23,6 @@ namespace Tema3._1.Models.BusinessLogicLayer
 
         public void AddMethod(object obj)
         {
-            //parametrul obj este cel dat prin CommandParameter cu MultipleBinding la Button in xaml
             Stock stock = obj as Stock;
             if (stock.ProductID == 0)
                 ErrorMessage = "Selecteaza un producator din lista";
@@ -62,24 +61,13 @@ namespace Tema3._1.Models.BusinessLogicLayer
         public void UpdateMethod(object obj)
         {
             Stock stock = obj as Stock;
-            //if (stock == null)
-            //{
-            //    ErrorMessage = "Selecteaza stock";
-            //}
-            //if (prd.ProducerID == 0)
-            //    ErrorMessage = "Selecteaza un producator din lista";
-            //else if (prd.CategoryID == 0)
-            //    ErrorMessage = "Selecteaza o categorie din lista";
-            //else if (prd.BarCode == 0)
-            //    ErrorMessage = "Codul de bare trebuie precizat";
+          
            
                 bool ok = false;
             foreach (Stock s in stocks)
                 if (s.StockID == stock.StockID)
                 {
-                    //s.Quantity = stock.Quantity;
-                    //s.IsActive = stock.IsActive;
-                    //s.SellPrice = stock.SellPrice;
+                   
                     context.ModifyStock(s.StockID, s.ProductID, stock.Quantity, s.Date, stock.SellPrice, s.ExpirationDate);
                     context.SaveChanges();
                     ErrorMessage = "";
@@ -134,7 +122,6 @@ namespace Tema3._1.Models.BusinessLogicLayer
                     query = from s in context.Stocks
                             where s.IsActive == true
                             join p in context.Products on s.ProductID equals p.ProductID
-                           // where s.Date < DateTime.Now
                             where p.Name.StartsWith(filterText)
                             select s;
                     break;
@@ -142,7 +129,6 @@ namespace Tema3._1.Models.BusinessLogicLayer
                     query = from s in context.Stocks
                             where s.IsActive == true
                             join p in context.Products on s.ProductID equals p.ProductID
-                           // where s.Date < DateTime.Now
                             join pr in context.Producers on p.ProducerID equals pr.ProducerID
                             where pr.Name.StartsWith(filterText)
                             select s;
@@ -161,7 +147,6 @@ namespace Tema3._1.Models.BusinessLogicLayer
                     query = from s in context.Stocks
                             where s.IsActive == true
                             join p in context.Products on s.ProductID equals p.ProductID
-                    // where s.Date < DateTime.Now
                     
                             where p.BarCode.Equals(ex)
                             select s;
@@ -170,7 +155,6 @@ namespace Tema3._1.Models.BusinessLogicLayer
                     query = from s in context.Stocks
                             where s.IsActive == true
                             join p in context.Products on s.ProductID equals p.ProductID
-                           // where s.Date < DateTime.Now
                             join c in context.Categories on p.CategoryID equals c.CategoryID
                             where c.Name.StartsWith(filterText)
                             select s;

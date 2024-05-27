@@ -32,7 +32,6 @@ namespace Tema3._1.Models.BusinessLogicLayer
 
         public void AddMethod(object obj)
         {
-            //parametrul obj este cel dat prin CommandParameter cu MultipleBinding la Button in xaml
             Receipt rct = obj as Receipt;
             if (rct.EmployeeID == 0)
                 ErrorMessage = "Selecteaza un angajat din lista";
@@ -40,7 +39,6 @@ namespace Tema3._1.Models.BusinessLogicLayer
                 ErrorMessage = "Data trebuie precizat";
             else
             {
-                //context.AddReceipt(rct.EmployeeID, rct.Date, new ObjectParameter("rctId", rct.ReceiptID));
                 context.Receipts.Add(rct);
                 context.SaveChanges();
                 rct.ReceiptID = context.Receipts.Max(item => item.ReceiptID);
@@ -51,8 +49,6 @@ namespace Tema3._1.Models.BusinessLogicLayer
 
         public void UpdateMethod(Receipt receipt)
         {
-            // Implementați actualizarea în baza de date pentru receipt
-            // Exemplu:
             var existingReceipt = receipts.LastOrDefault(r => r.ReceiptID == receipt.ReceiptID);
             if (existingReceipt != null)
             {
@@ -60,32 +56,9 @@ namespace Tema3._1.Models.BusinessLogicLayer
                 existingReceipt.Date = receipt.Date;
                 existingReceipt.IsActive = receipt.IsActive;
                 context.SaveChanges();
-                // Salvați modificările în baza de date
             }
         }
 
-        //public void DeleteMethod(object obj)
-        //{
-        //    Receipt rct = obj as Receipt;
-        //    if (rct == null)
-        //    {
-        //        ErrorMessage = "Selecteaza un bon";
-        //    }
-        //    else
-        //    {
-        //        Receipt r = context.Receipts.Where(i => i.ReceiptID == rct.ReceiptID).FirstOrDefault();
-        //        if (r != null)
-        //        {
-        //            context.DeleteProduct(r.ReceiptID);
-        //            context.SaveChanges();
-        //            receipts.Remove(r);
-        //            ErrorMessage = "";
-        //        }
-        //        else
-        //        {
-        //            ErrorMessage = "Bonul nu a fost găsit";
-        //        }
-        //    }
-        //}
+        
     }
 }

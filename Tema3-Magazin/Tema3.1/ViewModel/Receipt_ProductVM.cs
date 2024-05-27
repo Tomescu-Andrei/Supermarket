@@ -19,7 +19,6 @@ namespace Tema3._1.ViewModel
         private ReceiptBLL receiptBLL;
         private string errorMessage;
         int receiptID;
-        //public ObservableCollection<(DateTime?, double)> monthlySales = new ObservableCollection<(DateTime?, double)>();
 
 
         StockVM StockVM = new StockVM();
@@ -126,10 +125,8 @@ namespace Tema3._1.ViewModel
 
         public void AddMethod(object obj)
         {
-            //ReceiptProductList = new ObservableCollection<Receipt_Product>(receiptproductBLL.GetAllReceipt_Products().Where(product=>product.ReceiptID==receiptID));
 
             Receipt_Product receipt_Product = obj as Receipt_Product;
-            //var activeStocksEnumerator= StockVM.StocksList.Where(stock => stock.ProductID == receipt_Product.ProductID&&stock.IsActive);
             int totalQuantity = StockVM.StocksList.Where(stock => stock.ProductID == receipt_Product.ProductID && stock.IsActive).Sum(stock => stock.Quantity);
             var activeReceipt = ReceiptList.LastOrDefault();
             if (totalQuantity >= receipt_Product.Quantity && receipt_Product.ProductID != 0 && receipt_Product.Quantity > 0 && activeReceipt.IsActive == true)
@@ -148,15 +145,13 @@ namespace Tema3._1.ViewModel
                             stock.Quantity = 0;
                             aux = aux - stock.Quantity;
                             stock.IsActive = false;
-                            //StockBLL stockBLL = new StockBLL();
-                            //stockBLL.context.SaveChanges();
+                            
                             StockVM.UpdateMethod(stock);
                         }
                         else
                         {
                             stock.Quantity = stock.Quantity - aux;
-                            //StockBLL stockBLL = new StockBLL();
-                            //stockBLL.context.SaveChanges();
+                           
                             StockVM.UpdateMethod(stock);
                             break;
                         }
@@ -183,7 +178,6 @@ namespace Tema3._1.ViewModel
             {
                 MessageBox.Show("Stoc insuficient!");
             }
-            //ReceiptProductList = new ObservableCollection<Receipt_Product>(receiptproductBLL.GetAllReceipt_Products().Where(product=>product.ReceiptID==receiptID));
         }
 
         private ICommand addCommand;
@@ -205,7 +199,7 @@ namespace Tema3._1.ViewModel
             try
             {
                 string idText = File.ReadAllText(filePath);
-                // string idText = File.ReadAllText(filePath);
+               
                 if (int.TryParse(idText, out int employeeId))
                 {
                     return employeeId;
@@ -229,7 +223,7 @@ namespace Tema3._1.ViewModel
             if (lastActiveReceipt != null)
             {
                 lastActiveReceipt.IsActive = false;
-                receiptBLL.UpdateMethod(lastActiveReceipt);  // Asigură-te că ai o metodă de update în BLL
+                receiptBLL.UpdateMethod(lastActiveReceipt);
             }
         }
         public void AddMethodReceipt(object obj)
@@ -241,10 +235,9 @@ namespace Tema3._1.ViewModel
                 int employeeId = GetConnectedEmployeeId();
                 if (employeeId != -1)
                 {
-                    //activeReceipt.EmployeeID = employeeId;
-                    //activeReceipt.Date = DateTime.Now;
+                    
                     activeReceipt.IsActive = false;
-                    receiptBLL.UpdateMethod(activeReceipt);  // Asigură-te că ai o metodă de update în BLL
+                    receiptBLL.UpdateMethod(activeReceipt);  
                     ErrorMessage = receiptBLL.ErrorMessage;
                     receiptID = activeReceipt.ReceiptID;
                     ReceiptProductList = new ObservableCollection<Receipt_Product>(receiptproductBLL.GetAllReceipt_Products().Where(product => product.ReceiptID == receiptID));
@@ -354,7 +347,7 @@ namespace Tema3._1.ViewModel
 
         public void MonthlyStats(object obj)
         {
-            MonthlySales.Clear(); // Asigură-te că lista este golită înainte de a adăuga date noi
+            MonthlySales.Clear(); 
             var salesData = receiptproductBLL.MonthlyStatsMethod(obj);
             foreach (var item in salesData)
             {
@@ -377,22 +370,5 @@ namespace Tema3._1.ViewModel
         }
 
 
-        //public void FilterMethod(object obj)
-        //{
-        //    stockBLL.FilterMethod(obj);
-        //    ErrorMessage = stockBLL.ErrorMessage;
-        //}
-        //private ICommand filterCommand;
-        //public ICommand FilterCommand
-        //{
-        //    get
-        //    {
-        //        if (filterCommand == null)
-        //        {
-        //            filterCommand = new RelayCommand(FilterMethod);
-        //        }
-        //        return filterCommand;
-        //    }
-        //}
     }
 }

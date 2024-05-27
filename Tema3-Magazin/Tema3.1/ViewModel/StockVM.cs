@@ -20,7 +20,6 @@ namespace Tema3._1.ViewModel
         public StockVM()
         {
             stockBLL = new StockBLL();
-            //stockBLL.OperationCompleted += StockBLL_OperationCompleted; ;
             StocksList = new ObservableCollection<Stock>(stockBLL.GetAllStocks().Where(stock => stock.IsActive == true));
 
         }

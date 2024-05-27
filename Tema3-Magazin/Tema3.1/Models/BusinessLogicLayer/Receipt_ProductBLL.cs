@@ -37,15 +37,9 @@ namespace Tema3._1.Models.BusinessLogicLayer
             public double TotalSales { get; set; }
         }
 
-        //public ObservableCollection<KeyValuePair<DateTime?, DaySalesSummary>> GetDailyStats()
-        //{
-        //    return new ObservableCollection<KeyValuePair<DateTime?, DaySalesSummary>>(
-        //        salesSummaries.Select(kv => new KeyValuePair<DateTime?, DaySalesSummary>(kv.Key, kv.Value))
-        //    );
-        //}
+       
         public void AddMethod(object obj)
         {
-            //parametrul obj este cel dat prin CommandParameter cu MultipleBinding la Button in xaml
             Receipt_Product rp = obj as Receipt_Product;
             if (rp != null)
             {
@@ -74,23 +68,9 @@ namespace Tema3._1.Models.BusinessLogicLayer
         }
         public void SearchReceiptProductMethod(object obj)
         {
-            //string producerName = obj as string;
-            //var query = from rp in context.Receipt_Product
-            //            where rp.ReceiptProductID.StartsWith(producerName)
-            //            select rp;
-            //if (query != null)
-            //{
-
-            //    listProducts.Clear();
-            //    var receiptproducts = query.ToList();
-            //    foreach (var group in receiptproducts)
-            //    {
-            //        listProducts.Add(group.First());
-            //    }
-            //}
+          
             if (obj is string producerNameStr && int.TryParse(producerNameStr, out int producerName))
             {
-                // Adăugăm datele în memorie pentru a folosi `ToString()` și `StartsWith()`.
                 var query = from rp in context.Receipt_Product.AsEnumerable()
                             join r in context.Receipts on rp.ReceiptID equals r.ReceiptID
                             where r.ReceiptID.ToString().StartsWith(producerNameStr)
@@ -101,36 +81,13 @@ namespace Tema3._1.Models.BusinessLogicLayer
                 foreach (var product in receiptproducts)
                 {
 
-                    listProducts.Add(product); // Assuming listProducts is a list of receipt products.
+                    listProducts.Add(product); 
                 }
             }
         }
         public (Receipt, double) BestReceiptMethod(object obj)
         {
-            //string cashierName = string.Empty;
-            //string description = string.Empty;
-            //if (obj is DateTime selectedDate)
-            //{
-            //    int receiptId = (from r in context.Receipt
-            //                     where r.date_of_purchase == selectedDate
-            //                     join p in context.Product on r.id equals p.receipt_id
-            //                     group p by r.id into grouped
-            //                     let sum = grouped.Sum(p => p.selling_price)
-            //                     orderby sum descending
-            //                     select grouped.Key).FirstOrDefault();
-            //    cashierName = context.Receipt
-            //                  .Where(receipt => receipt.id == receiptId)
-            //                  .FirstOrDefault()
-            //                  .User
-            //                  .username
-            //                  .ToString();
-
-            //    description = GetReceiptForDisplay(context.Receipt
-            //           .Where(receipt => receipt.id == receiptId)
-            //           .FirstOrDefault());
-
-            //}
-
+           
             Receipt bestReceipt = new Receipt();
             double bestPrice = 0;
             if (obj is DateTime selectedDate)
@@ -161,7 +118,7 @@ namespace Tema3._1.Models.BusinessLogicLayer
 
         public ObservableCollection<DaySalesSummary> MonthlyStatsMethod(object obj)
         {
-            sales.Clear(); // Asigură-te că lista este golită înainte de a adăuga date noi
+            sales.Clear();
 
             var properties = obj.GetType().GetProperties();
             string name = (string)properties[0].GetValue(obj);
@@ -194,7 +151,7 @@ namespace Tema3._1.Models.BusinessLogicLayer
                         sales.Add(aux);
                 }
             }
-            return sales; // Returnează lista de vânzări
+            return sales; 
         }
 
     }

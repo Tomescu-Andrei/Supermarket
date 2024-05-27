@@ -10,8 +10,8 @@
         <local:CashierVM/>
     </Window.DataContext>
     <Grid>
-        <Button Content="Product View" HorizontalAlignment="Center" Margin="0,158,0,0" VerticalAlignment="Top" Height="37" Width="154" Command="{Binding OpenWindowCommand}" CommandParameter="1"/>
-        <Button  Content="Receipt View" HorizontalAlignment="Center" Margin="0,238,0,0" VerticalAlignment="Top" Height="34" Width="154" Command="{Binding OpenWindowCommand}" CommandParameter="2"/>
-        <Button  Content="All Receipt View" HorizontalAlignment="Center" Margin="0,299,0,0" VerticalAlignment="Top" Height="34" Width="154" Command="{Binding OpenWindowCommand}" CommandParameter="3"/>
+        <Button Content="Product View" HorizontalAlignment="Center" Margin="0,105,0,0" VerticalAlignment="Top" Height="37" Width="154" Command="{Binding OpenWindowCommand}" CommandParameter="1"/>
+        <Button  Content="Receipt View" HorizontalAlignment="Center" Margin="0,183,0,0" VerticalAlignment="Top" Height="34" Width="154" Command="{Binding OpenWindowCommand}" CommandParameter="2"/>
+        <Button  Content="All Receipt View" HorizontalAlignment="Center" Margin="0,260,0,0" VerticalAlignment="Top" Height="34" Width="154" Command="{Binding OpenWindowCommand}" CommandParameter="3"/>
     </Grid>
 </Window>

@@ -13,14 +13,12 @@
     <Window.DataContext>
         <viewModels:Receipt_ProductVM />
     </Window.DataContext>
-    <!--<Window.Resources>
-        
-        <converters:StockProductConvert x:Key="StockProductConvert"/>
-    </Window.Resources>-->
+
     <Window.Resources>
         <converters:StockProductConvert x:Key="StockProductConvert"/>
         <converters:Receipt_ProductConvert x:Key="Receipt_ProductConvert"/>
     </Window.Resources>
+    
     <StackPanel>
         <Grid Height="430" Width="791">
             <DataGrid Name="productGrid" Margin="0,10,0,194" AutoGenerateColumns="False" Height="330"

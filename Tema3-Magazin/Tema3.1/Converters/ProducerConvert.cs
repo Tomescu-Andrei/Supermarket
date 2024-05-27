@@ -17,7 +17,6 @@ namespace Tema3._1.Converters
             {
                 string name = values[0].ToString();
                 string country = values[1].ToString();
-                //bool isActive = values[2] is int && (int)values[2] != 0; // Conversie la bool
 
                 return new Producer()
                 {

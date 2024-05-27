@@ -15,16 +15,14 @@
         <converters:EmployeeStats x:Key="EmployeeStats" />
     </Window.Resources>
     <Grid>
-        <Calendar Name="salesCalendar" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="558,217,0,0" />
+        <Calendar Name="salesCalendar" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="558,203,0,0" />
 
-        <Button Content="Most expensive receipt" Margin="291,344,369,36" Width="140" Command="{Binding BestReceiptCommand}">
-            <Button.CommandParameter>
-                <Binding ElementName="salesCalendar" Path="SelectedDate"/>
-            </Button.CommandParameter>
-        </Button>
+
+
+        
         <Label Content="{Binding BestReceipt.ReceiptID}"  HorizontalAlignment="Left" Margin="578,55,0,0" VerticalAlignment="Top" Width="70" Height="26"/>
-        <Label Content="Best Receipt" HorizontalAlignment="Left" Margin="665,55,0,0" VerticalAlignment="Top" Height="26" Width="86"/>
-        <Label Content="Best Price" HorizontalAlignment="Left" Margin="665,101,0,0" VerticalAlignment="Top" Width="86"/>
+        <Label Content="Best Receipt" HorizontalAlignment="Left" Margin="461,55,0,0" VerticalAlignment="Top" Height="26" Width="86"/>
+        <Label Content="Best Price" HorizontalAlignment="Left" Margin="461,95,0,0" VerticalAlignment="Top" Width="86"/>
         <Label Content="{Binding BestPrice}" HorizontalAlignment="Left" Margin="558,101,0,0" VerticalAlignment="Top" Height="23" Width="75"/>
         <DataGrid Margin="0,0,400,185" AutoGenerateColumns="False" ScrollViewer.VerticalScrollBarVisibility="Visible" ItemsSource="{Binding MonthlySales}">
             <DataGrid.Columns>
@@ -32,7 +30,7 @@
                 <DataGridTextColumn Header="Total Sales" Binding="{Binding TotalSales}" />
             </DataGrid.Columns>
         </DataGrid>
-        <Button Content="User Monthly Stats" HorizontalAlignment="Left" Margin="73,357,0,0" VerticalAlignment="Top" Height="28" Width="127" Command="{Binding MonthlyStatsCommand}">
+        <Button Content="User Monthly Stats" HorizontalAlignment="Left" Margin="46,343,0,0" VerticalAlignment="Top" Height="28" Width="127" Command="{Binding MonthlyStatsCommand}">
             <Button.CommandParameter>
                 <MultiBinding Converter="{StaticResource EmployeeStats}" >
                     <Binding ElementName="empBox" Path="Text"/>
@@ -41,6 +39,11 @@
             </Button.CommandParameter>
         </Button>
         <Label Content="Employee" HorizontalAlignment="Left" Margin="46,275,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="empBox" HorizontalAlignment="Left" Margin="169,275,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="26"/>
+        <TextBox x:Name="empBox" HorizontalAlignment="Left" Margin="151,275,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="26"/>
+        <Button Content="Most expensive receipt" HorizontalAlignment="Left" Margin="250,343,0,0" VerticalAlignment="Top" Width="150" Height="28" Command="{Binding BestReceiptCommand}">
+            <Button.CommandParameter>
+                <Binding ElementName="salesCalendar" Path="SelectedDate"/>
+            </Button.CommandParameter>
+        </Button>
     </Grid>
 </Window>

@@ -35,7 +35,6 @@ namespace Tema3._1.Models.BusinessLogicLayer
 
         public void AddMethod(object obj)
         {
-            //parametrul obj este cel dat prin CommandParameter cu MultipleBinding la Button in xaml
             Product prd = obj as Product;
             if (prd.ProducerID == 0)
                 ErrorMessage = "Selecteaza un producator din lista";

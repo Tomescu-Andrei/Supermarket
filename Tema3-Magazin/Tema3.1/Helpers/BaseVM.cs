@@ -10,7 +10,6 @@ namespace Tema3._1.Helpers
 
     public class BaseVM : INotifyPropertyChanged
     {
-        #region INotifyPropertyChanged Members
 
         public event PropertyChangedEventHandler PropertyChanged;
         public void NotifyPropertyChanged(string propertyName)
@@ -20,7 +19,7 @@ namespace Tema3._1.Helpers
                 PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
             }
         }
-        #endregion
+       
     }
 
 }

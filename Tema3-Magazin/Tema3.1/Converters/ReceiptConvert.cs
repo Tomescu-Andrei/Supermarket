@@ -26,9 +26,8 @@ namespace Tema3._1.Converters
                 DateTime date;
                 if (DateTime.TryParse(values[1].ToString(), out date))
                 {
-                    // Conversia a reușit, poți utiliza valoarea id
                 }
-                bool isActive = values[2] is int && (int)values[2] != 0; // Conversie la bool
+                bool isActive = values[2] is int && (int)values[2] != 0; 
 
                 return new Receipt()
                 {

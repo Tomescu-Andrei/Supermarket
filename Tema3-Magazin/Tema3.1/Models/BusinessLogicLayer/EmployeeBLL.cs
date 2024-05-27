@@ -124,11 +124,9 @@ namespace Tema3._1.Models.BusinessLogicLayer
             {
                 if (string.IsNullOrEmpty(employee.Name))
                 {
-                    //de adaugat
                 }
                 else if (string.IsNullOrEmpty(employee.Password))
                 {
-                    //de adaugat
                 }
                 else
                 {

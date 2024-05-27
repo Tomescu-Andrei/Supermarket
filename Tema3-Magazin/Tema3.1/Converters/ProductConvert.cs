@@ -31,10 +31,8 @@ namespace Tema3._1.Converters
                 int barCode;
                 if (int.TryParse(values[3].ToString(), out barCode))
                 {
-                    // Conversia a reușit, poți utiliza valoarea id
                 }
 
-                //bool isActive = values[4] is int && (int)values[4] != 0; // Conversie la bool
 
                 return new Product()
                 {

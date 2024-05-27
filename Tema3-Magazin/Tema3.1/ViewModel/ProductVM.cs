@@ -20,7 +20,6 @@ namespace Tema3._1.ViewModel
         public ProductVM()
         {
             productBLL = new ProductBLL();
-            //producerBLL.OperationCompleted += ProducerBLL_OperationCompleted;
             ProductsList = new ObservableCollection<Product>(productBLL.GetAllProducts().Where(product => product.IsActive == true));
         }
 

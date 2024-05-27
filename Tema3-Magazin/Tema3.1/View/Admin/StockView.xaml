@@ -30,16 +30,16 @@
                 <DataGridTextColumn Header="Expiration Date" Binding="{Binding ExpirationDate}"/>
             </DataGrid.Columns>
         </DataGrid>
-        <Label Content="Quantity" HorizontalAlignment="Left" Margin="62,253,0,0" VerticalAlignment="Top" Width="71"/>
-        <TextBox x:Name="quantityBox" HorizontalAlignment="Left" Margin="184,253,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="26"/>
+        <Label Content="Quantity" HorizontalAlignment="Left" Margin="400,248,0,0" VerticalAlignment="Top" Width="71"/>
+        <TextBox x:Name="quantityBox" HorizontalAlignment="Left" Margin="510,248,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="26"/>
         <Label Content="Supply date" HorizontalAlignment="Left" Margin="62,294,0,0" VerticalAlignment="Top" Width="81"/>
         <TextBox x:Name="dateBox" HorizontalAlignment="Left" Margin="184,294,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="26"/>
         <Label Content="Expiration date" HorizontalAlignment="Left" Margin="62,346,0,0" VerticalAlignment="Top" Width="94"/>
         <TextBox x:Name="expirationBox" HorizontalAlignment="Left" Margin="184,346,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="26"/>
-        <Label Content="Buying Price" HorizontalAlignment="Left" Margin="472,253,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="buyBox" HorizontalAlignment="Left" Margin="609,253,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="26"/>
-        <Label Content="Product" HorizontalAlignment="Left" Margin="472,294,0,0" VerticalAlignment="Top" Width="75"/>
-        <TextBox x:Name="productBox" HorizontalAlignment="Left" Margin="609,294,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="26"/>
+        <Label Content="Buying Price" HorizontalAlignment="Left" Margin="400,294,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="buyBox" HorizontalAlignment="Left" Margin="510,294,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="26"/>
+        <Label Content="Product" HorizontalAlignment="Left" Margin="62,248,0,0" VerticalAlignment="Top" Width="75"/>
+        <TextBox x:Name="productBox" HorizontalAlignment="Left" Margin="184,248,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="26"/>
 
         <Button x:Name="addButton" Content="Add Stock" HorizontalAlignment="Left" Margin="62,384,0,0" VerticalAlignment="Top" Width="71" Height="25"  Command="{Binding AddCommand}">
             <Button.CommandParameter>

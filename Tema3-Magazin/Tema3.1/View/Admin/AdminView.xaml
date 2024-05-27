@@ -18,9 +18,9 @@
         <Button x:Name="productButton" Content="Product" HorizontalAlignment="Left" Margin="154,184,0,0" VerticalAlignment="Top" Height="33" Width="122" Command="{Binding OpenWindowCommand}" CommandParameter="4"/>
         <Button x:Name="stockButton" Content="Stock" HorizontalAlignment="Left" Margin="154,239,0,0" VerticalAlignment="Top" Height="33" Width="122" Command="{Binding OpenWindowCommand}" CommandParameter="5"/>
         <Button x:Name="userButton" Content="Users" HorizontalAlignment="Left" Margin="154,306,0,0" VerticalAlignment="Top" Height="33" Width="122" Command="{Binding OpenWindowCommand}" CommandParameter="6"/>
-        <Button x:Name="ProducerCast" Content="Producer Cast" HorizontalAlignment="Left" Margin="154,368,0,0" VerticalAlignment="Top" Height="33" Width="122" Command="{Binding OpenWindowCommand}" CommandParameter="7"/>
-        <Button x:Name="CategoryCast" Content="Category Cast" HorizontalAlignment="Center" Margin="0,368,0,0" VerticalAlignment="Top" Height="33" Width="122" Command="{Binding OpenWindowCommand}" CommandParameter="8"/>
-        <Button x:Name="bestReceiptButton" Content="Best Receipt" HorizontalAlignment="Center" Margin="0,67,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.227,0.152" Height="34" Width="122"  Command="{Binding OpenWindowCommand}" CommandParameter="9"/>
+        <Button x:Name="ProducerCast" Content="Producer's products" HorizontalAlignment="Left" Margin="560,127,0,0" VerticalAlignment="Top" Height="33" Width="122" Command="{Binding OpenWindowCommand}" CommandParameter="7"/>
+        <Button x:Name="CategoryCast" Content="Category Value" HorizontalAlignment="Left" Margin="560,184,0,0" VerticalAlignment="Top" Height="33" Width="122" Command="{Binding OpenWindowCommand}" CommandParameter="8"/>
+        <Button x:Name="bestReceiptButton" Content="Best Receipt" HorizontalAlignment="Left" Margin="560,67,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.227,0.152" Height="34" Width="122"  Command="{Binding OpenWindowCommand}" CommandParameter="9"/>
 
     </Grid>
 </Window>

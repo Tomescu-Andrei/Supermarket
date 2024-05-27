@@ -11,13 +11,10 @@
     <Window.DataContext>
         <viewModels:ProductVM/>
     </Window.DataContext>
-    <Window.Resources>
-        <converters:FilterConvert x:Key="FilterConvert"/>
-        <converters:ProductConvert x:Key="ProductConvert"/>
-    </Window.Resources>
+
     <StackPanel>
         <DataGrid Name="productsGrid"  Margin="0,15,0,0" AutoGenerateColumns="False" Height="230"
-  ScrollViewer.VerticalScrollBarVisibility="Visible" ItemsSource="{Binding ProductsList}">
+                ScrollViewer.VerticalScrollBarVisibility="Visible" ItemsSource="{Binding ProductsList}">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Category" Binding="{Binding Category.Name}" Width="100" IsReadOnly="True"/>
                 <DataGridTextColumn Header="Product" Binding="{Binding Name}" Width="100" IsReadOnly="True"/>
