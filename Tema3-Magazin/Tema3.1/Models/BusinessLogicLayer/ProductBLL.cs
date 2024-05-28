@@ -45,6 +45,15 @@ namespace Tema3._1.Models.BusinessLogicLayer
             else
             {
                 context.Products.Add(prd);
+                ObservableCollection<Product> products = GetAllProducts();
+                foreach (Product product in products)
+                {
+                    if (product.BarCode == prd.BarCode)
+                    {
+                        ErrorMessage = "Bar code invalid";
+                        return;
+                    }
+                }
                 context.SaveChanges();
                 prd.ProductID = context.Products.Max(item => item.ProductID);
                 ProductsList.Add(prd);

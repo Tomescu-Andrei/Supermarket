@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace Tema3._1.Models.BusinessLogicLayer
 {
@@ -118,40 +119,48 @@ namespace Tema3._1.Models.BusinessLogicLayer
 
         public ObservableCollection<DaySalesSummary> MonthlyStatsMethod(object obj)
         {
-            sales.Clear();
-
-            var properties = obj.GetType().GetProperties();
-            string name = (string)properties[0].GetValue(obj);
-            string year = (string)properties[1].GetValue(obj);
-            string month = (string)properties[2].GetValue(obj);
-            Employee employee = context.Employees.Where(emp => emp.Name == name).FirstOrDefault();
-
-            if (employee != null)
+            try
             {
-                DateTime startDate = new DateTime(int.Parse(year), int.Parse(month), 1);
-                DateTime endDate = startDate.AddMonths(1).AddDays(-1);
+                sales.Clear();
 
-                var receipts = context.Receipts.Where(recept => recept.Date >= startDate && recept.Date <= endDate && recept.EmployeeID == employee.EmployeeID).ToList();
+                var properties = obj.GetType().GetProperties();
+                string name = (string)properties[0].GetValue(obj);
+                string year = (string)properties[1].GetValue(obj);
+                string month = (string)properties[2].GetValue(obj);
+                Employee employee = context.Employees.Where(emp => emp.Name == name).FirstOrDefault();
 
-                Receipt_ProductBLL receiptProductBLL = new Receipt_ProductBLL();
-                receiptProductBLL.listProducts = receiptProductBLL.GetAllReceipt_Products();
-                for (DateTime date = startDate; date <= endDate; date = date.AddDays(1))
+                if (employee != null)
                 {
-                    DaySalesSummary aux = new DaySalesSummary();
-                    aux.Date = date;
-                    aux.TotalSales = 0;
-                    foreach (var receipt in receipts.Where(rec => rec.Date == date).ToList())
+                    DateTime startDate = new DateTime(int.Parse(year), int.Parse(month), 1);
+                    DateTime endDate = startDate.AddMonths(1).AddDays(-1);
+
+                    var receipts = context.Receipts.Where(recept => recept.Date >= startDate && recept.Date <= endDate && recept.EmployeeID == employee.EmployeeID).ToList();
+
+                    Receipt_ProductBLL receiptProductBLL = new Receipt_ProductBLL();
+                    receiptProductBLL.listProducts = receiptProductBLL.GetAllReceipt_Products();
+                    for (DateTime date = startDate; date <= endDate; date = date.AddDays(1))
                     {
-                        foreach (Receipt_Product receiptproduct in receiptProductBLL.listProducts.Where(prod => prod.ReceiptID == receipt.ReceiptID).ToList())
+                        DaySalesSummary aux = new DaySalesSummary();
+                        aux.Date = date;
+                        aux.TotalSales = 0;
+                        foreach (var receipt in receipts.Where(rec => rec.Date == date).ToList())
                         {
-                            aux.TotalSales += ((float)receiptproduct.TotalPrice);
+                            foreach (Receipt_Product receiptproduct in receiptProductBLL.listProducts.Where(prod => prod.ReceiptID == receipt.ReceiptID).ToList())
+                            {
+                                aux.TotalSales += ((float)receiptproduct.TotalPrice);
+                            }
                         }
+                        if (aux.TotalSales > 0)
+                            sales.Add(aux);
                     }
-                    if (aux.TotalSales > 0)
-                        sales.Add(aux);
                 }
+                return sales;
             }
-            return sales; 
+            catch (NullReferenceException ex)
+            {
+                MessageBox.Show("An error occurred: " + ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return new ObservableCollection<DaySalesSummary>();
+            }
         }
 
     }

@@ -27,8 +27,27 @@ namespace Tema3._1.ViewModel
             receiptproductBLL = new Receipt_ProductBLL();
             receiptBLL = new ReceiptBLL();
             ReceiptList = new ObservableCollection<Receipt>(receiptBLL.GetAllReceipt());
+            if (ReceiptList.Count == 0)
+            {
+                Receipt receipt = new Receipt
+                {
+                    EmployeeID = GetConnectedEmployeeId(),
+                    Date = DateTime.Now,
+                    IsActive = true
+                };
+
+                receiptBLL.AddMethod(receipt);
+                ErrorMessage = receiptBLL.ErrorMessage;
+                receiptID = receipt.ReceiptID;
+                ReceiptList.Add(receipt);
+                ReceiptProductList.Clear();
+                ReceiptProductList = new ObservableCollection<Receipt_Product>(receiptproductBLL.GetAllReceipt_Products().Where(product => product.ReceiptID == receiptID));
+
+            }
+
+
             receiptID = ReceiptList[ReceiptList.Count - 1].ReceiptID;
-            
+
         }
 
 
@@ -243,6 +262,7 @@ namespace Tema3._1.ViewModel
                     ReceiptProductList = new ObservableCollection<Receipt_Product>(receiptproductBLL.GetAllReceipt_Products().Where(product => product.ReceiptID == receiptID));
                 }
 
+            }
                 Receipt receipt = new Receipt
                 {
                     EmployeeID = GetConnectedEmployeeId(),
@@ -256,7 +276,6 @@ namespace Tema3._1.ViewModel
                 ReceiptList.Add(receipt);
                 ReceiptProductList.Clear();
                 ReceiptProductList = new ObservableCollection<Receipt_Product>(receiptproductBLL.GetAllReceipt_Products().Where(product => product.ReceiptID == receiptID));
-            }
         }
 
         private ICommand addCommandReceipt;
